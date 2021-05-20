@@ -33,7 +33,7 @@ class Form extends React.Component {
           </nav>
         </header>
         <main data-testid="container">
-          <section>{PAGES[this.state.formPage]}</section>
+          <section>{this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} /> : <Regist navigateTo={this.navigateTo} />}</section>
         </main>
       </>
     );

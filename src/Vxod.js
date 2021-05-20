@@ -31,7 +31,8 @@ class Vxod extends React.Component {
           <span className="regist-text">Новый пользователь?</span>
           <span>
             <a id="registsulka" className="regist-sulka" href="#" color="inherit"
-             onClick="function(e)" e>
+             onClick={()=>this.handlePage('Register')}
+             >
               Зарегистрируйтесь
               </a>
           </span>
