@@ -2,17 +2,14 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import './style.css';
 
-
 class Vxod extends React.Component {
 
    handlePage = (page) => {
     this.props.navigateTo(page)
   }
-  function(e) {
-    var name = 'What is your name?'
-
-    console.log(name)
-  }
+  
+    
+  
   render(){
     
   return (

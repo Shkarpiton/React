@@ -2,10 +2,6 @@ import React from "react";
 import  Vxod  from "./Vxod";
 import  Regist  from "./Regist";
 
-const PAGES = {
-    Vxod: <Vxod />,
-    Regist: <Regist />,
-};
 
 class Form extends React.Component {
   state  = { formPage: "Vxod" };
@@ -22,19 +18,14 @@ class Form extends React.Component {
                 
               </li>
               <li>
-                <button>
-            let result = 
-              this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} /> : <Regist navigateTo={this.navigateTo} />;
-
-
-                </button>
+              <main data-testid="container">
+                <section>{this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} /> : <Regist navigateTo={this.navigateTo} />}</section>
+              </main>
               </li>
             </ul>
           </nav>
         </header>
-        <main data-testid="container">
-          <section>{this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} /> : <Regist navigateTo={this.navigateTo} />}</section>
-        </main>
+        
       </>
     );
   }

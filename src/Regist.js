@@ -4,6 +4,11 @@ import React from 'react';
 import './style.css';
 
 class Regist extends React.Component {
+
+  handlePage = (page) => {
+    this.props.navigateTo(page)
+  }
+
   render(){
     
   return (
@@ -17,7 +22,10 @@ class Regist extends React.Component {
           <div className="regist-cont">
             <span className="regist-text">Уже зарегистрирован?</span>
             <span>
-              <a id="vxodsulka" className="regist-sulka" href="#">Войти</a>
+              <a id="vxodsulka" className="regist-sulka" href="#"color="inherit"
+             onClick={()=>this.handlePage('Vxod')}>
+             Войти
+             </a>
             </span>
           </div>
         
