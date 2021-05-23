@@ -1,15 +1,16 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-
 import './style.css';
 
 
 
 
-const Header = ({goToPage}) => {
+const Header = ({goToPage,navigateStran}) => {
 
+  const changePage = (page) => {
+    navigateStran(page)
+  }
     const handlePage = (page) => {
         goToPage(page)
     }
@@ -19,12 +20,12 @@ const Header = ({goToPage}) => {
           <IconButton edge="start"  color="inherit" aria-label="menu">
             
           </IconButton>
-          <Typography variant="h6" >
-            <img url="./ikon.png" />
-          </Typography>
+          <div className="h6" >
+            <img src="./ikon.png" />
+          </div>
           <Button color="inherit" onClick={()=>handlePage('map')}>Map</Button>
           <Button color="inherit" onClick={()=>handlePage('profile')}>Profile</Button>
-          <Button color="inherit" onClick={()=>handlePage('exit')}>Exit</Button>
+          <Button color="inherit" onClick={()=>changePage('exit')}>Exit</Button>
       </div>
     </div>
   )};

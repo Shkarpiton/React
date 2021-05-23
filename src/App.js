@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Osn from './Osn';
-import Form from './Form';
+import Perexod from './Perexod';
+
 
 
 
@@ -9,9 +9,9 @@ class App extends React.Component {
   render(){
     return (
       <div >
-          <Form />
-        {/* <Osn />*/}
-        
+          
+         <Perexod />
+         
       </div>
     );
   } 

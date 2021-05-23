@@ -1,3 +1,3 @@
-const Login = () => <div>Login</div>
+const Exit = () => <div>Exit</div>
 
-export default Login;
+export default Exit;

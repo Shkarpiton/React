@@ -23,6 +23,10 @@ const pages={
         this.setState({page})
       };
   
+
+      navigateStran = (page) => {
+        this.setState({formPage:page})
+      }
     render(){
       return (
         <div >
