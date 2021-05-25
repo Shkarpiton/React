@@ -8,6 +8,9 @@ class Form extends React.Component {
   navigateTo = (page) => {
     this.setState({formPage:page})
   }
+  changelout = (page) => {
+    this.props.changelout(page)
+  }
   render() {
     return (
       <>
@@ -19,7 +22,7 @@ class Form extends React.Component {
               </li>
               <li>
               <main data-testid="container">
-                <section>{this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} /> : <Regist navigateTo={this.navigateTo} />}</section>
+                <section>{this.state.formPage=="Vxod" ?<Vxod navigateTo={this.navigateTo} changelout={this.changelout} /> : <Regist navigateTo={this.navigateTo} />}</section>
               </main>
               </li>
             </ul>

@@ -5,11 +5,14 @@ import Vxod from './Vxod';
 
 
 class Perexod extends React.Component {
-    state  = { changPage: "Osnova" };
+    state  = { changPage: "Forma" };
     navigateStran = (page) => {
     this.setState({formPage:page})
   }
   
+  navigateTo = (page) => {
+    this.setState({formPage:page})
+  }
    
      
    
@@ -18,7 +21,7 @@ class Perexod extends React.Component {
    return (
      <div className="perex">
         <main data-testid="container">
-            <section>{this.state.changPage=="Osnova" ?<Vxod navigateStran={this.navigateStran} /> : <Osn navigateStran={this.navigateStran} />}</section>
+            <section>{this.state.changPage=="Forma" ?<Vxod navigateStran={this.navigateStran} navigateTo={this.navigateTo}  /> : <Osn navigateStran={this.navigateStran} />}</section>
         </main>
    </div>
    );

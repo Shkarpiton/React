@@ -24,13 +24,13 @@ const pages={
       };
   
 
-      navigateStran = (page) => {
-        this.setState({formPage:page})
+      changelout = () => {
+        this.props.changelout('Forma')
       }
     render(){
       return (
         <div >
-          <Header goToPage={this.goToPage} />
+          <Header goToPage={this.goToPage} changelout={this.changelout} />
           {pages[this.state.page]}
         </div>
       );

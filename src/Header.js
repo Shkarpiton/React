@@ -6,10 +6,10 @@ import './style.css';
 
 
 
-const Header = ({goToPage,navigateStran}) => {
+const Header = ({goToPage,changelout}) => {
 
-  const changePage = (page) => {
-    navigateStran(page)
+  const changelouthendler = (page) => {
+    changelout(page)
   }
     const handlePage = (page) => {
         goToPage(page)
@@ -25,7 +25,7 @@ const Header = ({goToPage,navigateStran}) => {
           </div>
           <Button color="inherit" onClick={()=>handlePage('map')}>Map</Button>
           <Button color="inherit" onClick={()=>handlePage('profile')}>Profile</Button>
-          <Button color="inherit" onClick={()=>changePage('exit')}>Exit</Button>
+          <Button color="inherit" onClick={()=>changelouthendler('Forma')}>Exit</Button>
       </div>
     </div>
   )};

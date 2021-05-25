@@ -5,13 +5,13 @@ import './style.css';
 
 
 class Vxod extends React.Component {
-
+  
   handlePage = (page) => {
     this.props.navigateTo(page)
   }
   
-  changePage = (page) => {
-    this.props.navigateStran(page)
+  changelout = () => {
+    this.props.changelout('Osn')
   }
   
   render(){
@@ -50,7 +50,7 @@ class Vxod extends React.Component {
           
         </label>
         <button className="btn"
-        onClick={()=>this.changePage('Osnova')}
+        onClick={()=>this.changelout()}
         >
           Войти
         </button>
