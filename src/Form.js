@@ -1,6 +1,7 @@
 import React from "react";
 import  Vxod  from "./Vxod";
 import  Regist  from "./Regist";
+import {withAuth} from './AuthContext';
 
 
 class Form extends React.Component {
@@ -9,7 +10,7 @@ class Form extends React.Component {
     this.setState({formPage:page})
   }
   changelout = (page) => {
-    this.props.changelout(page)
+      this.props.changelout(page)
   }
   render() {
     return (

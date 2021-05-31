@@ -1,18 +1,27 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import './style.css';
+import {withAuth} from './AuthContext';
 
 
 
 class Vxod extends React.Component {
-  
+    
   handlePage = (page) => {
     this.props.navigateTo(page)
   }
   
-  changelout = () => {
+  changelout = (page) => {
     this.props.changelout('Osn')
-  }
+  };
+  
+  authenticate = (event) => {
+    event.preventDefault();
+    const { email, password } = event.target;
+    this.props.logIn(email.value, password.value);
+  };
+  
+ 
   
   render(){
     
@@ -38,29 +47,38 @@ class Vxod extends React.Component {
               </a>
           </span>
         </div>
-      
+        <form id="loginForm" onSubmit={this.authenticate}>
         <label className="input">
-          <input type="text"/>
-            <span><span>Username</span></span>
+          <input type="text" 
+               
+              />
+            <span><span>Имя</span></span>
         </label>
 
         <label className="input">
-          <input type="text"/>
-            <span><span>Password</span></span>
+          <input type="text"  
+              
+              />
+            <span><span>Пароль</span></span>
           
         </label>
+        </form>
         <button className="btn"
-        onClick={()=>this.changelout()}
+        
+        
         >
           Войти
         </button>
+        
 </div>
 </div>   
 </div>
   </div>
   </div>
   </div>
+  
   );
+  
 }
 }
 export default Vxod;

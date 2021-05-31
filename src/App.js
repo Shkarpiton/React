@@ -7,7 +7,12 @@ import Osn from './Osn';
 class App extends React.Component {
   state  = { changPage: "Forma" };
   changelout = (page) => {
-    this.setState({changPage:page})
+    
+    if (this.props.isLoggedIn) {
+      this.setState({changPage:page})
+    }else{
+      this.setState({ changPage: "Forma" })
+    }
   }
 
   render(){
