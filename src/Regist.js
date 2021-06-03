@@ -2,9 +2,12 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import './style.css';
+import PropTypes from "prop-types";
 
 class Regist extends React.Component {
-
+  static propTypes = {
+    navigateTo:PropTypes.node
+  }
   handlePage = (page) => {
     this.props.navigateTo(page)
   }

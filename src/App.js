@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import Osn from './Osn';
-
+import {withAuth} from './AuthContext';
 
 
 class App extends React.Component {
@@ -21,11 +21,11 @@ class App extends React.Component {
           
          
          <main data-testid="container">
-            <section>{this.state.changPage=="Forma" ?<Form changelout={this.changelout}   /> : <Osn changelout={this.changelout} />}</section>
+            <section>{this.props.isLoggedIn==false ?<Form changelout={this.changelout}   /> : <Osn changelout={this.changelout} />}</section>
         </main>
       </div>
     );
   } 
 }
 
-export default App;
+export default withAuth(App);

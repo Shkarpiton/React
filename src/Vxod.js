@@ -2,26 +2,45 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import './style.css';
 import {withAuth} from './AuthContext';
+import PropTypes from "prop-types";
 
 
 
 class Vxod extends React.Component {
-    
+  static propTypes = {
+    navigateTo:PropTypes.node,
+    logIn :PropTypes.node,
+    isLoggedIn: PropTypes.node
+  }
+  state  = { email: "", password:"" };
   handlePage = (page) => {
     this.props.navigateTo(page)
   }
-  
-  changelout = (page) => {
-    this.props.changelout('Osn')
-  };
+  static propTypes = {
+    name: PropTypes.string,
+    age: PropTypes.number
+}
+
+  /*changelout = (page) => {
+    
+ //this.props.changelout('Osn')
+    if (this.props.isLoggedIn == true) {
+      this.props.changelout('Osn')
+    }
+  };*/
   
   authenticate = (event) => {
     event.preventDefault();
-    const { email, password } = event.target;
-    this.props.logIn(email.value, password.value);
+   
+    this.props.logIn(this.state.email, this.state.password);
+    console.log(this.props.isLoggedIn)
+    
   };
   
- 
+  handleInput = (event) => {
+    const target = event.target
+    this.setState ({[target.name]:target.value})
+  }
   
   render(){
     
@@ -50,25 +69,30 @@ class Vxod extends React.Component {
         <form id="loginForm" onSubmit={this.authenticate}>
         <label className="input">
           <input type="text" 
-               
+               value = {this.state.email}
+               onChange = {this.handleInput}
+               name = "email"
               />
             <span><span>Имя</span></span>
         </label>
 
         <label className="input">
           <input type="text"  
-              
+              value = {this.state.password}
+              onChange = {this.handleInput}
+              name = "password"
               />
             <span><span>Пароль</span></span>
           
         </label>
-        </form>
         <button className="btn"
-        
+         type = "submit"
         
         >
           Войти
         </button>
+        </form>
+        
         
 </div>
 </div>   
@@ -81,4 +105,4 @@ class Vxod extends React.Component {
   
 }
 }
-export default Vxod;
+export default withAuth(Vxod);

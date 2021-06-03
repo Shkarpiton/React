@@ -3,6 +3,7 @@ import Header from './Header';
 import Map from './Map';
 import Profile from './Profile';
 import Exit from './Exit';
+import PropTypes from "prop-types";
 
 
 const pages={
@@ -12,6 +13,9 @@ const pages={
   }
   
   class Osn extends React.Component {
+    static propTypes = {
+      changelout:PropTypes.node   
+    }
     constructor(){
       super();
   

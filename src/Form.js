@@ -2,9 +2,13 @@ import React from "react";
 import  Vxod  from "./Vxod";
 import  Regist  from "./Regist";
 import {withAuth} from './AuthContext';
+import PropTypes from "prop-types";
 
 
 class Form extends React.Component {
+  static propTypes = {
+    changelout:PropTypes.node
+  }
   state  = { formPage: "Vxod" };
   navigateTo = (page) => {
     this.setState({formPage:page})
@@ -35,4 +39,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default withAuth(Form);
