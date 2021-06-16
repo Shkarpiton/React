@@ -1,17 +1,23 @@
 import { render } from '@testing-library/react';
-import React from 'react';
-import './style.css';
-import {withAuth} from './AuthContext';
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-
-
+import  {authenticate}  from "./actions";
+import { connect } from "react-redux";
 
 class Vxod extends React.Component {
+
+  authenticate = (event) => {
+    event.preventDefault();
+    const { email, password } = event.target;
+    this.props.authenticate(email.value, password.value);
+  };
+
   static propTypes = {
     navigateTo:PropTypes.node,
     logIn :PropTypes.node,
     isLoggedIn: PropTypes.node
   }
+  
   state  = { email: "", password:"" };
   handlePage = (page) => {
     this.props.navigateTo(page)
@@ -21,21 +27,8 @@ class Vxod extends React.Component {
     age: PropTypes.number
 }
 
-  /*changelout = (page) => {
-    
- //this.props.changelout('Osn')
-    if (this.props.isLoggedIn == true) {
-      this.props.changelout('Osn')
-    }
-  };*/
   
-  authenticate = (event) => {
-    event.preventDefault();
-   
-    this.props.logIn(this.state.email, this.state.password);
-    console.log(this.props.isLoggedIn)
-    
-  };
+
   
   handleInput = (event) => {
     const target = event.target
@@ -105,4 +98,7 @@ class Vxod extends React.Component {
   
 }
 }
-export default withAuth(Vxod);
+export const VxodWithConnect = connect(
+  (state) => ({ isLoggedIn: state.auth.isLoggedIn }),
+  { authenticate }
+)(Vxod);

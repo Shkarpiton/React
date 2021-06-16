@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import Osn from './Osn';
-import {withAuth} from './AuthContext';
+import { connect } from "react-redux";
 
 
 class App extends React.Component {
@@ -28,4 +28,4 @@ class App extends React.Component {
   } 
 }
 
-export default withAuth(App);
+export default connect((state) => ({ isLoggedIn: state.auth.isLoggedIn }))(App);

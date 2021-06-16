@@ -6,26 +6,16 @@ import Exit from './Exit';
 import PropTypes from "prop-types";
 
 
-const pages={
-    map: <Map />,
-    profile: <Profile />,
-    exit: <Exit />,
-  }
+
   
   class Osn extends React.Component {
     static propTypes = {
       changelout:PropTypes.node   
     }
-    constructor(){
-      super();
-  
-      this.state = { page: 'map'}
-    }
+    
       
   
-       goToPage = (page) => {
-        this.setState({page})
-      };
+       
   
 
       changelout = () => {
@@ -34,8 +24,8 @@ const pages={
     render(){
       return (
         <div >
-          <Header goToPage={this.goToPage} changelout={this.changelout} />
-          {pages[this.state.page]}
+          <Header changelout={this.changelout} />
+          
         </div>
       );
     } 
